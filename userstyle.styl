@@ -1,0 +1,99 @@
+CONFIG = {
+  'Arial Black'        : 'ENG',
+  'Arial'              : 'ENG',
+  'Calibri'            : 'ENG',
+  'Cambria'            : 'ENG',
+  'Candara'            : 'ENG',
+  'Comic Sans MS'      : 'ENG',
+  'Constantia'         : 'ENG',
+  'Corbel'             : 'ENG',
+  'Georgia'            : 'ENG',
+  'Helvetica'          : 'ENG',
+  'Impact'             : 'ENG',
+  'Lucida Grande'      : 'ENG',
+  'Mceinline'          : 'ENG',
+  'Palatino Linotype'  : 'ENG',
+  'Segoe UI'           : 'ENG',
+  'Tahoma Bold'        : 'ENG',
+  'Tahoma'             : 'ENG',
+  'Times CY'           : 'ENG',
+  'Times New Roman'    : 'ENG',
+  'Times'              : 'ENG',
+  'Trebuchet MS'       : 'ENG',
+  'Verdana'            : 'ENG',
+  'sans-serif'         : 'ENG',
+  'serif'              : 'ENG',
+
+  'Arial SimSun'       : 'CJK',
+  'FZLanTingHei-R-GBK' : 'CJK',
+  'Heiti SC'           : 'CJK',
+  'Microsoft Jhenghei' : 'CJK',
+  'Microsoft YaHei'    : 'CJK',
+  'MingLiU'            : 'CJK',
+  'MingLiU-ExtB'       : 'CJK',
+  'MingLiU_HKSCS'      : 'CJK',
+  'MingLiU_HKSCS-ExtB' : 'CJK',
+  'NSimsun'            : 'CJK',
+  'PMingLiU'           : 'CJK',
+  'PMingLiU-ExtB'      : 'CJK',
+  'STHeiti'            : 'CJK',
+  'Simhei'             : 'CJK',
+  'Simsun'             : 'CJK',
+  'Source Han Sans CN' : 'CJK',
+  'WenQuanYi Zen Hei'  : 'CJK',
+  'kaiti'              : 'CJK',
+  'noto sans'          : 'CJK',
+  'simsun Arial'       : 'CJK',
+  '宋体'               : 'CJK',
+  '宋體'               : 'CJK',
+  '微软雅黑'           : 'CJK',
+  '新宋体'             : 'CJK',
+  '新細明體'           : 'CJK',
+  '瀹嬩綋'             : 'CJK',
+  '細明體'             : 'CJK',
+  '隶书'               : 'CJK',
+  '黑体'               : 'CJK',
+  '����'           : 'CJK',
+
+  'Andale Mono'        : 'MONO',
+  'Consolas'           : 'MONO',
+  'Courier New'        : 'MONO',
+  'Courier'            : 'MONO',
+  'Lucida Console'     : 'MONO',
+  'Menlo'              : 'MONO',
+  'Monaco'             : 'MONO',
+  'mono'               : 'MONO',
+  'monospace'          : 'MONO',
+}
+
+CJKFONT  = 'PingFang SC'
+ENGFONT  = 'Helvetica Neue'
+MONOFONT = 'Essential PragmataPro'
+
+body
+  -webkit-font-smoothing subpixel-antialiased !important
+  font-family CJKFONT
+
+for FONT in CONFIG
+  @font-face
+    font-family FONT
+    unicode-range U+2E80-FFFF
+    src local(CJKFONT)
+  if CONFIG[FONT] == 'ENG'
+    @font-face
+      font-family FONT
+      unicode-range U+0000-2E7F
+      src local(FONT)
+  if CONFIG[FONT] == 'CJK'
+    @font-face
+      font-family FONT
+      unicode-range U+0000-2E7F
+      src local(ENGFONT)
+  if CONFIG[FONT] == 'MONO'
+    @font-face
+      font-family FONT
+      unicode-range U+0000-2E7F
+      src local(MONOFONT)
+
+pre, code
+  font-family MONOFONT CJKFONT !important
