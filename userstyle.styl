@@ -75,10 +75,10 @@ CJKFONT  = 'PingFang SC'
 ENGFONT  = 'Helvetica Neue'
 MONOFONT = 'PragmataPro'
 
-body
+html
   -webkit-font-smoothing subpixel-antialiased !important
   text-rendering optimizeLegibility !important
-  font-family CJKFONT
+  font-family ENGFONT CJKFONT !important
 
 for FONT in CONFIG
   @font-face
